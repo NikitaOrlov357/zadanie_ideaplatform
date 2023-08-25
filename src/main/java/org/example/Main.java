@@ -79,11 +79,14 @@ public class Main {
                 System.out.println("Минимальное время полета с авиаперевозчиком " + entry.getKey() + ": " + hours + " ч " + minutes + " мин");
             }
 
+            // Запись в файл с результатами
             File file = new File("/home/work/IdeaProjects/zadanie_ideaplatform/src/main/java/bin/res.txt");
             FileWriter writer = new FileWriter(file);
             writer.write("Разница между средней ценой и медианой для полетов между Владивостоком и Тель-Авивом: " + (averagePrice - medianPrice) +"\nСредняя цена: " + averagePrice + "\nМедианная цена: " + medianPrice);
             writer.flush();
 
+
+            //Вывод в консоль для проверки
             System.out.println("Разница между средней ценой и медианой для полетов между Владивостоком и Тель-Авивом: " + (averagePrice - medianPrice) +"\nСредняя цена: " + averagePrice + "\nМедианная цена: " + medianPrice);
             System.out.println(ticketPrices);
             reader.close();
