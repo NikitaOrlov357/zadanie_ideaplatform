@@ -82,8 +82,14 @@ public class Main {
             // Запись в файл с результатами
             File file = new File("/home/work/IdeaProjects/zadanie_ideaplatform/src/main/java/bin/res.txt");
             FileWriter writer = new FileWriter(file);
+            for (Map.Entry<String, Duration> entry : minFlightTimes.entrySet()) {
+                long hours = entry.getValue().toHours();
+                long minutes = entry.getValue().toMinutesPart();
+                writer.write("Минимальное время полета с авиаперевозчиком " + entry.getKey() + ": " + hours + " ч " + minutes + " мин\n" );
+            }
             writer.write("Разница между средней ценой и медианой для полетов между Владивостоком и Тель-Авивом: " + (averagePrice - medianPrice) +"\nСредняя цена: " + averagePrice + "\nМедианная цена: " + medianPrice);
             writer.flush();
+
 
 
             //Вывод в консоль для проверки
